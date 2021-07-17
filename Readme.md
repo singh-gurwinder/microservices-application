@@ -14,3 +14,4 @@ A sample project using Microservices Architecture.
 - Docker and Kubernetes
 
 > Maven project
+> [git-localconfig-repo](https://github.com/singh-gurwinder/git-localconfig-repo.git) added as other git repository
