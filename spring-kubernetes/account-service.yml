@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-service-app
+  labels:
+    app: account-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app : account-service-app
+  template:
+    metadata:
+      labels:
+        app: account-service-app
+    spec:
+      containers:
+      - name: account-service-app
+        image: sidhu/account-service:0.0.1
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9002
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name:  account-service-svc
+spec:
+  selector:
+    app:  account-service-app
+  ports:
+  - port:  80
+    targetPort:  9002
